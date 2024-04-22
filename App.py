@@ -6,12 +6,15 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
 ps = PorterStemmer()
+punctuation=['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~']
+
 def transform_text(text):
     # Lower case
     text = text.lower()
     
     # Tokenization
     text = nltk.word_tokenize(text)
+    print(text)
     
     # Removing special characters
     y = []
@@ -24,10 +27,11 @@ def transform_text(text):
     
     # Removing stop words and punctuation
     for i in text:
-        if i not in stopwords.words('english') and i not in string.punctuation:
+        if i not in stopwords.words('english') and i not in punctuation:
             y.append(i)
             
     text = y[:]
+    print(text)
     y.clear()
     
     # Stemming
