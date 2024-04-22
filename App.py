@@ -3,7 +3,11 @@ import pickle
 # from sklearn.externals import joblib
 import nltk
 from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 from nltk.stem.porter import PorterStemmer
+
+nltk.download('stopwords')
+nltk.download('punkt')
 
 ps = PorterStemmer()
 punctuation=['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~']
@@ -13,7 +17,7 @@ def transform_text(text):
     text = text.lower()
     
     # Tokenization
-    text = nltk.word_tokenize(text)
+    text = word_tokenize(text)
     print(text)
     
     # Removing special characters
